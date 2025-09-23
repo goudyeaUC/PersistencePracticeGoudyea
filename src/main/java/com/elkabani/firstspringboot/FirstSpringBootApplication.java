@@ -11,8 +11,10 @@ public class FirstSpringBootApplication {
     {
       ApplicationContext context =  SpringApplication.run(FirstSpringBootApplication.class, args);
         var orderService = context.getBean(OrderService.class);
+       // var orderservice2 = context.getBean(OrderService.class);
       //var  orderService = new OrderService(new StripePaymentService());
         orderService.placeOrder();
+       // orderservice2.placeOrder();
     }
 
 }
