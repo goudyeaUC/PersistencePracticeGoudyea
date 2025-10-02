@@ -2,6 +2,7 @@ package com.elkabani.firstspringboot;
 
 import com.elkabani.firstspringboot.entities.Address;
 import com.elkabani.firstspringboot.entities.User;
+import com.elkabani.firstspringboot.repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -11,7 +12,10 @@ public class FirstSpringBootApplication {
 
     public static void main(String[] args)
     {
-  //    ApplicationContext context =  SpringApplication.run(FirstSpringBootApplication.class, args);
+     ApplicationContext context =  SpringApplication.run(FirstSpringBootApplication.class, args);
+
+     var userRepository = context.getBean(UserRepository.class);
+
    //     var orderService = context.getBean(OrderService.class);
        // var orderservice2 = context.getBean(OrderService.class);
       //var  orderService = new OrderService(new StripePaymentService());
@@ -20,11 +24,19 @@ public class FirstSpringBootApplication {
      //   var user1 = new User(1L, "John Doe", "jDoe@email.com", "1234");
 
         var user1 = User.builder()
-                .id(2L)
                 .name("Jane Smith")
                 .email("jSmith@emial.com")
                 .password("abcd")
                 .build();
+
+       // userRepository.save(user1);
+        var user2 = userRepository.findById(2L).orElseThrow();
+        System.out.println(user2.getEmail());
+
+        userRepository.deleteById(1L);
+
+        var users = userRepository.findAll();
+      users.forEach(u -> System.out.println(u.getName()));
 
         var address1 = Address.builder()
                 .street("123 Main St")
