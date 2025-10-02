@@ -1,5 +1,7 @@
 package com.elkabani.firstspringboot;
 
+import com.elkabani.firstspringboot.entities.Address;
+import com.elkabani.firstspringboot.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -9,12 +11,31 @@ public class FirstSpringBootApplication {
 
     public static void main(String[] args)
     {
-      ApplicationContext context =  SpringApplication.run(FirstSpringBootApplication.class, args);
-        var orderService = context.getBean(OrderService.class);
+  //    ApplicationContext context =  SpringApplication.run(FirstSpringBootApplication.class, args);
+   //     var orderService = context.getBean(OrderService.class);
        // var orderservice2 = context.getBean(OrderService.class);
       //var  orderService = new OrderService(new StripePaymentService());
-        orderService.placeOrder();
+   //     orderService.placeOrder();
        // orderservice2.placeOrder();
+     //   var user1 = new User(1L, "John Doe", "jDoe@email.com", "1234");
+
+        var user1 = User.builder()
+                .id(2L)
+                .name("Jane Smith")
+                .email("jSmith@emial.com")
+                .password("abcd")
+                .build();
+
+        var address1 = Address.builder()
+                .street("123 Main St")
+                .city("Springfield")
+                .state("IL")
+                .zipCode("62701")
+                .build();
+
+        user1.addAddress(address1);
+
+        System.out.println(user1);
     }
 
 }
