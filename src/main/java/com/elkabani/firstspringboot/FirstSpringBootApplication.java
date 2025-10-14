@@ -20,8 +20,8 @@ public class FirstSpringBootApplication {
         userService.showEntityState();
         userService.showRelatedEntities();
 
-        userService.persistRelated();
-    //    userService.deleteRelated();
+     //   userService.persistRelated();
+          userService.deleteRelated();
 
    //     var orderService = context.getBean(OrderService.class);
        // var orderservice2 = context.getBean(OrderService.class);

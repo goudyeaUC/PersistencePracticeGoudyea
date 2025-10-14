@@ -78,11 +78,13 @@ public class UserService {
         user.addAddress(address1);
         userRepository.save(user);
     }
+    @Transactional
     public void deleteRelated()
     {
-        userRepository.deleteById(12L);
-      /* var user = userRepository.findById(11L).orElseThrow();
+      //  userRepository.deleteById(13L);
+       var user = userRepository.findById(11L).orElseThrow();
        var address = user.getAddresses().getFirst();
-       user.removeAddress(address); */
-    }
+       user.removeAddress(address);
+         userRepository.save(user);
+   }
 }
