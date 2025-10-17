@@ -51,8 +51,8 @@ public class UserService {
     {
       //  var user = userRepository.findById(3L).orElseThrow();
     //    System.out.println(user.getEmail());
-        var profile = profileRepository.findById(3L).orElseThrow();
-        System.out.println(profile.getUser().getEmail());
+        //var profile = profileRepository.findById(3L).orElseThrow();
+        //System.out.println(profile.getUser().getEmail());
     }
 
     public void persistRelated()

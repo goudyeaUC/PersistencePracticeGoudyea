@@ -4,7 +4,8 @@ spring:
   datasource:
       url: jdbc:mysql://localhost:3306/mystore?createDatabaseIfNotExist=true
       username: root
-      password: P@ssword
+      password: password
   jpa:
     show-sql: true
 
+#Password changed to 'password' on local branch after reinstalling MySQL; previously default was P@ssword; update if needed
