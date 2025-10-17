@@ -1,8 +1,11 @@
 package com.elkabani.firstspringboot;
 
 import com.elkabani.firstspringboot.entities.Address;
+import com.elkabani.firstspringboot.entities.Category;
+import com.elkabani.firstspringboot.entities.Product;
 import com.elkabani.firstspringboot.entities.User;
 import com.elkabani.firstspringboot.repositories.UserRepository;
+import com.elkabani.firstspringboot.services.CategoryService;
 import com.elkabani.firstspringboot.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +22,15 @@ public class FirstSpringBootApplication {
         var userService = context.getBean(UserService.class);
         userService.showEntityState();
         userService.showRelatedEntities();
+
+        var categoryService = context.getBean(CategoryService.class);
+
+        Category Electronics = new Category(null, "Electronics", null);
+        Product headphones = new Product(null, "Headphones", "On-ear headphones", 19.72, null);
+        Product monitor = new Product(null, "Monitor", "1080p diplay", 109.86, null);
+        categoryService.createProductInNewCategory(headphones, Electronics);
+        categoryService.createProductInExistingCategory(monitor, Electronics);
+        //categoryService.deleteProduct();
 
      //   userService.persistRelated();
           //userService.deleteRelated();

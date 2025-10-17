@@ -22,10 +22,30 @@ public class CategoryService {
 
     @Transactional
     public Category createCategory(Category category) {
-
+        System.out.println("saving category" + category.getName());
         return categoryRepository.save(category);
 
     }
 
+    @Transactional
+    public Product createProductInNewCategory(Product product, Category category)
+    { categoryRepository.save(category);
+        product.setCategory(category);
+        System.out.println("saving product" + product.getName() + " in category " + category.getName());
+        return productRepository.save(product);
 
+    }
+
+    @Transactional
+    public Product createProductInExistingCategory(Product product, Category category) {
+        product.setCategory(category);
+        System.out.println("saving product" + product.getName() + " in category " + category.getName());
+        return productRepository.save(product);
+    }
+
+    @Transactional
+    public void deleteProduct(Long productId) {
+        System.out.println("deleting product with id " + productId);
+        productRepository.deleteById(productId);
+    }
 }
