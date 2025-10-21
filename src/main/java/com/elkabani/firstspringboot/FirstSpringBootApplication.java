@@ -30,7 +30,7 @@ public class FirstSpringBootApplication {
         Product monitor = new Product(null, "Monitor", "1080p diplay", 109.86, null);
         categoryService.createProductInNewCategory(headphones, Electronics);
         categoryService.createProductInExistingCategory(monitor, Electronics);
-        //categoryService.deleteProduct();
+        // nnbcategoryService.deleteProduct();
 
      //   userService.persistRelated();
           //userService.deleteRelated();
