@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="V6__add_category_description.sql" type="DatabaseScript" editBeforeRun="true">
+    <script-mode>FILE</script-mode>
+    <data-source id="28d886c8-910f-4318-aa27-49f28aa8ec83" />
+    <method v="2" />
+  </configuration>
+</component>
